@@ -2,6 +2,7 @@ import api.methods.OrdersMethods;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Before;
@@ -42,7 +43,7 @@ public class OrderCreationTests {
         Response response = OrdersMethods.createOrder(order);
         response
                 .then()
-                .statusCode(201)
+                .statusCode(HttpStatus.SC_CREATED)
                 .assertThat().body("track", Matchers.notNullValue());
         this.trackId = response.body().path("track");
     }

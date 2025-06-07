@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetOrderListRequestBody {
-    private Integer courierId;
-    private String nearestStation;
-    private Integer limit;
-    private Integer page;
+public class CourierLoginRequestBody {
+    private String login;
+    private String password;
 }

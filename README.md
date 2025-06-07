@@ -36,3 +36,4 @@ Tests for API of scooter ordering service https://qa-scooter.praktikum-services.
 - Allure 2.20.0
 - Gson 2.10
 - jackson 2.14.0g
+- Lombok 1.18.22

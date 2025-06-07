@@ -9,6 +9,11 @@ import ru.yandex.praktikum.page.object.models.GetOrderListRequestBody;
 import static io.restassured.RestAssured.given;
 
 public class OrdersMethods {
+
+    private static final String URL_CREATE_ORDER = "/api/v1/orders";
+    private static final String URL_GET_ORDER_LIST = "/api/v1/orders";
+    private static final String URL_CANCEL_ORDER = "/api/v1/orders/cancel";
+
     @Step("Create order")
     public static Response createOrder(Order order) {
         return given()
@@ -16,7 +21,7 @@ public class OrdersMethods {
                 .and()
                 .body(order)
                 .when()
-                .post("/api/v1/orders");
+                .post(URL_CREATE_ORDER);
     }
 
     @Step("Get order list")
@@ -26,7 +31,7 @@ public class OrdersMethods {
                 .and()
                 .body(getOrderListRequestBody)
                 .when()
-                .get("/api/v1/orders");
+                .get(URL_GET_ORDER_LIST);
     }
 
     @Step("Cancel previously created order")
@@ -36,7 +41,7 @@ public class OrdersMethods {
                 .and()
                 .body(cancelOrderRequestBody)
                 .when()
-                .put("/api/v1/orders/cancel");
+                .put(URL_CANCEL_ORDER);
     }
 
 }
